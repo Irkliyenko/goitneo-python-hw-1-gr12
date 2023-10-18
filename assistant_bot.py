@@ -4,6 +4,7 @@ def parse_input(user_input):
     return cmd, *args
 
 
+#adds name and number to the dict contats
 def add_contact(args, contacts):
     name, phone = args
     if name == "username" or not phone.isnumeric():
@@ -13,6 +14,8 @@ def add_contact(args, contacts):
         return "Contact added."
 
 
+
+#overwrites the phone number to the new one
 def change_phone(args, contacts):
     name, new_phone = args
     if name in contacts:
@@ -22,6 +25,8 @@ def change_phone(args, contacts):
         raise ValueError("This contact doesn't exist.")
 
 
+
+#show the phone for a specific user name
 def show_phone(args, contacts):
     name = args[0]
     if name in contacts:
@@ -30,6 +35,8 @@ def show_phone(args, contacts):
         raise ValueError("This contact doesn't exist.")
 
 
+
+#shows all numbers in the list
 def show_all(contacts):
     phone_numbers = contacts.values()
     str = ("\n".join(phone_numbers))
